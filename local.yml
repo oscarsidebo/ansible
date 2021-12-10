@@ -1,0 +1,12 @@
+- hosts: localhost
+  become: true
+  pre_tasks:
+  - name: update cache
+    apt:
+      update_cache: true
+    tags:
+    - node
+  tasks: 
+  - include: tasks/node.yml
+  - include: tasks/python.yml
+  
