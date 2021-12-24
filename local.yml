@@ -3,16 +3,6 @@
     source_key: "./.ssh/id_rsa"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
     personal: "{{ lookup('env','HOME') }}/personal"
-  pre_tasks:
-  - name: update cache
-    become: true
-    apt:
-      force_apt_get: true
-      update_cache: true
-      state: present
-    tags:
-    - core
-    - install
   tasks: 
   - include: tasks/ssh.yml
   - include: tasks/nvim-setup.yml

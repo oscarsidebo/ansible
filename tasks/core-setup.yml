@@ -1,7 +1,7 @@
 - name: Install System Packages 1 (build-essential, cmake, pkg-config, pthread)
   become: true
-  apt:
-    name: ["build-essential", "cmake", "pkg-config", "libpthread-stubs0-dev"]
+  community.general.homebrew:
+    name: [ "cmake", "pkg-config", "libpthread-stubs"]
   tags:
     - install
     - neovim
@@ -9,8 +9,8 @@
 
 - name: Install System Packages 2 (lua, unzip, libtool, libtool-bin, gettext)
   become: true
-  apt:
-    name: [ "lua5.1", "unzip", "libtool", "libtool-bin", "gettext"]
+  community.general.homebrew:
+    name: [ "lua@5.1", "unzip", "libtool", "gettext"]
   tags:
     - install
     - neovim
@@ -18,17 +18,10 @@
 
 - name: Install System Packages 3 (the rest)
   become: true
-  apt:
-    name: [ "curl", "htop", "ccache", "python3-pip", "moreutils", "clangd" ]
+  community.general.homebrew:
+    name: [  "htop", "ccache" ]
   tags:
     - install
     - core
 
-- name: Install Clang
-  become: true
-  apt:
-    name: ["clang", "clang-11", "clang-12", "clangd", "clangd-10", "clangd-11", "clangd-12"]
-  tags:
-    - install
-    - neovim
-    - core
+

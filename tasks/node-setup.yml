@@ -1,6 +1,6 @@
 - name: Install nodejs and npm
   become: true
-  apt:
+  community.general.homebrew:
     name: ["nodejs", "npm"]
   tags:
     - install
