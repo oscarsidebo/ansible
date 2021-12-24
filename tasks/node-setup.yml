@@ -1,5 +1,5 @@
 - name: Install nodejs and npm
-  become: true
+  become: false
   community.general.homebrew:
     name: ["nodejs", "npm"]
   tags:

@@ -1,4 +1,5 @@
 - name: Installing stow
+  become: false  
   community.general.homebrew:
     name: ["stow"]
   tags:
