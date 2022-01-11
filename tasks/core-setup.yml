@@ -1,7 +1,7 @@
 - name: Install System Packages 1 (build-essential, cmake, pkg-config, pthread)
   become: false
   community.general.homebrew:
-    name: [ "cmake", "pkg-config", "libpthread-stubs"]
+    name: [ "cmake","automake", "pkg-config", "libpthread-stubs"]
   tags:
     - install
     - neovim
@@ -10,7 +10,7 @@
 - name: Install System Packages 2 (lua, unzip, libtool, libtool-bin, gettext)
   become: false
   community.general.homebrew:
-    name: [ "lua@5.1", "unzip", "libtool", "gettext"]
+    name: [ "lua@5.1", "unzip", "libtool", "gettext","ripgrep"]
   tags:
     - install
     - neovim
@@ -24,4 +24,11 @@
     - install
     - core
 
-
+- name: Install Tmux
+  become: false
+  community.general.homebrew:
+    name: ["tmux"]
+  tags:
+    - install
+    - core
+    - tmux
